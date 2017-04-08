@@ -1,6 +1,9 @@
 FROM fsharp
 
-# Install NuGet
+# Download nuget from web
+# Use nuget to download FAKE.
+# Define a shortcut to call fake without refering to mono or binary path.
+
 RUN wget -q -O NuGet.exe 'https://github.com/NuGet/Home/releases/download/3.2/nuget.exe'                  \
  && mono NuGet.exe install fake -ExcludeVersion -OutputDirectory /usr/lib -Verbosity quiet                \
  && echo "#!/bin/bash" > /usr/local/bin/fake                                                              \
